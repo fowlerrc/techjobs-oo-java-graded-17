@@ -73,7 +73,7 @@ public class JobTest {
     }
 
     @Test
-    public void testSettingId() {
+    public void testSettingJobId() {
         Job job = new Job();
         Job job1 = new Job();
 
