@@ -2,8 +2,7 @@ package org.launchcode.techjobs.oo;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 
 public class JobTest {
@@ -34,7 +33,6 @@ public class JobTest {
         Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
 
-
         assertTrue(job.toString().endsWith(System.lineSeparator()));
         assertTrue(job.toString().startsWith(System.lineSeparator()));
 
@@ -45,7 +43,6 @@ public class JobTest {
     public void testToStringContainsCorrectLabelsAndData() {
         //Job job = new Job("Product tester", new Employer("ACME"), new Location());
         Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-
 
 
         String expected = System.lineSeparator() + "ID: " + job.getId() + System.lineSeparator() +
@@ -73,6 +70,22 @@ public class JobTest {
         String actual = job.toString();
 
         assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testSettingId() {
+        Job job = new Job();
+        Job job1 = new Job();
+
+        assertNotEquals(job.getId(), job1.getId());
+    }
+
+    @Test
+    public void  testJobsForEquality() {
+        Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        Job job1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+        assertNotEquals(job.getId(), job1.getId());
     }
 }
 
